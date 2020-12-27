@@ -1,6 +1,11 @@
 'use strict';
 
 {
+  
+
+  const timeUp = new Audio();
+  timeUp.src = 'hoge.mp3';
+  
   const timer = document.getElementById('timer');
   const start = document.getElementById('start');
   const cancel = document.getElementById('cancel');
@@ -40,9 +45,6 @@
     //初期表示
     showTimer();
 
-    let timeUp = new Audio();
-    timeUp.src = 'みどりの風.mp3';
-
     function stop(){
       if(window.confirm('Time Up!!!')){
         timeUp.pause()
@@ -76,6 +78,7 @@
     //cancelボタンをクリックでタイマー停止。ダブルクリックでリセット。
     cancel.addEventListener('click', function(){
       clearInterval(countStart);
+      timeUp.pause();
     })
     
     cancel.addEventListener('dblclick', function(){
